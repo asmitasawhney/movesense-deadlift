@@ -1,14 +1,14 @@
 ## Announcements
   
-**(20th Apr 2022) Sensor firmware 2.1.3 is out!**  
+**(29th Aug 2022) Sensor firmware 2.1.4 is out!**  
 
-This is a bugfix release that fixes an issue that was found out after 2.1.2 release. Please test 
+This is a bugfix release that fixes an issue that was found out after 2.1.3 release. Please test 
 your software thoroughly before committing to the 2.x since the sensors cannot be rolled back to 1.9.x!
 
 **Known issues**  
 Please refer to [CHANGES.md](CHANGES.md) for a list of changes & known issues.
 
-**NOTE: The build environment was changed to be docker based in release 2.0. Please read the instruction at http://movesense.com/docs/esw/getting_started/**
+**NOTE: The build environment was changed to be docker based in release 2.0. Please read the instruction at http://movesense.com/docs/esw/getting_started/**s
 
 
 ## Overview
