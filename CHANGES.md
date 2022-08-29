@@ -1,3 +1,14 @@
+## Version 2.1.4.1c3320a6d89b1d ##
+
+### Whats new:
+- Bugfix: Windows BLE doesn't connect
+
+### Known Bugs:
+- /Comm/Ble/Scan only returns one result (since 2.0)
+
+### Notes:
+- This is a sport only release
+
 ## Version 2.1.3.e71681333dc3d1 ##
 
 ### Whats new:
