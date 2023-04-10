@@ -1,0 +1,11 @@
+/movesense/myBuild/CMakeFiles/create_combined_hex.dir
+/movesense/myBuild/CMakeFiles/dfupkg.dir
+/movesense/myBuild/CMakeFiles/rebuild_cache.dir
+/movesense/myBuild/CMakeFiles/flash_all.dir
+/movesense/myBuild/CMakeFiles/Movesense.dir
+/movesense/myBuild/CMakeFiles/flash.dir
+/movesense/myBuild/CMakeFiles/backup_manufacturing_data.dir
+/movesense/myBuild/CMakeFiles/create_hex.dir
+/movesense/myBuild/CMakeFiles/pkgs.dir
+/movesense/myBuild/CMakeFiles/flash_pkg.dir
+/movesense/myBuild/CMakeFiles/edit_cache.dir
