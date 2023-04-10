@@ -73,7 +73,7 @@ void myApp::processData(wb::ResourceId resourceId, const wb::Value &value){
   float magnitudes[16];
   const wb::Array<wb::FloatVector3D> &accData = data.arrayAcc;
 
-  float averageMagnitude = 0;
+  float averageMagnitude[1];
   float x_avg = 0;
   float y_avg = 0;
   float  z_avg = 0;
@@ -82,22 +82,24 @@ void myApp::processData(wb::ResourceId resourceId, const wb::Value &value){
   for(i = 0; i<accData.size(); i++) {
 	  wb::FloatVector3D a = accData[i];
 	  float magnitude = sqrt(a.x*a.x + a.y*a.y + a.z*a.z);
-	  averageMagnitude += magnitude;
+	  averageMagnitude[0] += magnitude;
 	  x_avg += a.x;
 	  y_avg += a.y;
 	  z_avg += a.z;
   }
-  averageMagnitude /= i;
+  averageMagnitude[0] = averageMagnitude[0]/i;
   x_avg /= i;
   y_avg /= i;
   z_avg /= i;
 
   uint8_t tag = 5;
 
-  if (y_avg > 11.0f and z_avg > 2.0f ) {
+  //if (y_avg > 11.0f and z_avg > 2.0f ) {
 	count[0]++; 
-  	sendPacket(count, sizeof(count), tag, Responses::COMMAND_RESULT);
+	sendPacket((uint8_t *)(averageMagnitude), sizeof(count), tag, Responses::COMMAND_RESULT);
+
+  	//sendPacket(count, sizeof(count), tag, Responses::COMMAND_RESULT);
   	ledSetPattern(1000,2000,1);
-  }
+  //}
 
 }
