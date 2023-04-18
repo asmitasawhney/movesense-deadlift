@@ -67,12 +67,27 @@ void myApp::handleCommand(uint8_t cmd, const uint8_t values[], size_t len){
 void myApp::processData(wb::ResourceId resourceId, const wb::Value &value){
 
 
-  //if (findDataSub(resourceId) ->clientReference != DEFAULT_REFERENCE)
-  //	  return;
+  if (findDataSub(resourceId) ->clientReference != DEFAULT_REFERENCE)
+  	  return;
   const WB_RES::IMU6Data &data = value.convertTo<WB_RES::IMU6Data&>();
   float magnitudes[16];
   const wb::Array<wb::FloatVector3D> &accData = data.arrayAcc;
 
+  float avgMag = 0;
+  size_t i;
+  for(i=0; i<15 && i< accData.size(); i++) {
+        wb::FloatVector3D a = accData[i];
+	float magnitude = sqrt(a.x*a.x + a.y*a.y + a.z*a.z);
+	magnitudes[i+1] = magnitude;
+	avgMag += magnitude;
+  }
+  avgMag /= i;
+  *((char *) magnitudes+3) = avgMag <3.0f? 1:0;
+  uint8_t tag = 2;
+  sendPacket((uint8_t *)magnitudes+3, 1+i*sizeof(float), tag, Responses::DATA);
+
+
+  /*
   float averageMagnitude[1];
   float x_avg = 0;
   float y_avg = 0;
@@ -101,5 +116,5 @@ void myApp::processData(wb::ResourceId resourceId, const wb::Value &value){
   	//sendPacket(count, sizeof(count), tag, Responses::COMMAND_RESULT);
   	ledSetPattern(1000,2000,1);
   //}
-
+ */
 }
