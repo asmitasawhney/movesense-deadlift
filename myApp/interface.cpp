@@ -111,7 +111,7 @@ void myApp::processData(wb::ResourceId resourceId, const wb::Value &value){
 
   uint8_t tag = 5;
 
-  if (y_avg > 11.0f and z_avg > 2.0f ) {
+  if (x_avg > 3.0f and y_avg > 3.0f ) {
 	count[0]++; 
   	sendPacket(count, sizeof(count), tag, Responses::COMMAND_RESULT);
   	ledSetPattern(1000,2000,1);
