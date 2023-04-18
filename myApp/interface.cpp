@@ -67,6 +67,7 @@ void myApp::handleCommand(uint8_t cmd, const uint8_t values[], size_t len){
 void myApp::processData(wb::ResourceId resourceId, const wb::Value &value){
 
 
+  /*
   const WB_RES::IMU6Data &data = value.convertTo<WB_RES::IMU6Data&>();
   float magnitudes[16];
   const wb::Array<wb::FloatVector3D> &accData = data.arrayAcc;
@@ -84,7 +85,37 @@ void myApp::processData(wb::ResourceId resourceId, const wb::Value &value){
   uint8_t tag = 2;
   sendPacket((uint8_t *)magnitudes+3, 1+8*sizeof(float), tag, Responses::DATA);
   ledSetPattern(1000,2000,1);
+  */
+    const WB_RES::IMU6Data &data = value.convertTo<WB_RES::IMU6Data&>();
+  float magnitudes[16];
+  const wb::Array<wb::FloatVector3D> &accData = data.arrayAcc;
 
+  float averageMagnitude = 0;
+  float x_avg = 0;
+  float y_avg = 0;
+  float  z_avg = 0;
+
+  size_t i;
+  for(i = 0; i<accData.size(); i++) {
+	  wb::FloatVector3D a = accData[i];
+	  float magnitude = sqrt(a.x*a.x + a.y*a.y + a.z*a.z);
+	  averageMagnitude += magnitude;
+	  x_avg += a.x;
+	  y_avg += a.y;
+	  z_avg += a.z;
+  }
+  averageMagnitude /= i;
+  x_avg /= i;
+  y_avg /= i;
+  z_avg /= i;
+
+  uint8_t tag = 5;
+
+  if (y_avg > 11.0f and z_avg > 2.0f ) {
+	count[0]++; 
+  	sendPacket(count, sizeof(count), tag, Responses::COMMAND_RESULT);
+  	ledSetPattern(1000,2000,1);
+  }
 
   /*
   float averageMagnitude[1];
