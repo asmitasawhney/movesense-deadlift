@@ -82,7 +82,7 @@ void myApp::processData(wb::ResourceId resourceId, const wb::Value &value){
   avgMag /= i;
   *((char *) magnitudes+3) = avgMag <3.0f? 1:0;
   uint8_t tag = 2;
-  sendPacket((uint8_t *)magnitudes+3, 1+i*sizeof(float), tag, Responses::DATA);
+  sendPacket((uint8_t *)magnitudes+3, 1+8*sizeof(float), tag, Responses::DATA);
   ledSetPattern(1000,2000,1);
 
 
