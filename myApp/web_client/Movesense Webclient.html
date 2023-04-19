@@ -16,7 +16,7 @@
       //Edit function below this point
       ctx.fillStyle = "#eee";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.font = "30px Arial";
+      ctx.font = "20px Arial";
       ctx.fillStyle = "#000"
       ctx.fillText("Recieved:", 50, 50);
       for(let i=0; i<values.length; i++){
@@ -315,12 +315,11 @@
 
     <div id="responses">
       <div id="tall-boi"></div>
-
     </div>
 
     <div id="hidden-footer"></div>
     <div id="panel">
-	    <div> Welcome! Connect your sensor to begin monitoring form! </div>
+	    <div> Welcome! Connect your sensor to begin monitoring form! We will alert if you are rushing through the movements.</div>
 	    <div> If you run into issues with the sensor, please try reconnecting. </div>
       <div id="panel-header">
         <div id="connect_button" onclick="select_sensor()"> Add Sensor </div>
@@ -355,8 +354,10 @@
       </div>
     </div>
 	<br>
+    <a href="https://www.healthline.com/health/exercise-fitness/time-under-tension#takeaway">Read about the importance of slow movements</a>
+    <div>Here is a tutorial video to help you get started on deadlifts: </div>
     <iframe width="420" height="315"
-	src="https://www.youtube.com/watch?v=2bmuYtv4HbQ">
+	src="https://www.youtube.com/embed/2bmuYtv4HbQ">
 	</iframe>
     <ul id="type-menu">
       <li class="typea" onclick="reformatDt('n')">None</li>
