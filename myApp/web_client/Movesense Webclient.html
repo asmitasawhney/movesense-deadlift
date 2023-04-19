@@ -22,7 +22,7 @@
       for(let i=0; i<values.length; i++){
         ctx.fillText(values[i],65, 90+40*i);
    	}
-      //document.getElementById("out").innerHTML = values;
+      document.getElementById("out").innerHTML = values;
     }
 
 
@@ -96,6 +96,7 @@
         margin:5px 0px 5px 5px;
       }
       #responses{
+	display: none;
         margin-left:50px;
       }
 
@@ -301,7 +302,7 @@
       }
       #canvas{
         width:400px;
-        height:400px;
+        height:500px;
         border:2px solid black;
       }
     </style>
