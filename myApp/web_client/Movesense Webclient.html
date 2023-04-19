@@ -99,6 +99,11 @@
 	display: none;
         margin-left:50px;
       }
+      #output{
+	background-color:#bbb;
+	font-size: 20px;
+	}
+
 
       #type-menu{
         list-style:none;
@@ -311,16 +316,16 @@
   <!--todo: scrolldown button -->
   <!--todo: automatic command input clensing-->
   <body id="body">
-    <h1 style="font-family:verdana;">14-744 Form Helper</h1>
+    <h1 style="font-family:verdana;">14-744 Deadlift Form Helper</h1>
 
     <div id="responses">
       <div id="tall-boi"></div>
     </div>
 
-    <div id="hidden-footer"></div>
+    <!--<div id="hidden-footer"></div>-->
     <div id="panel">
 	    <div> Welcome! Connect your sensor to begin monitoring form! We will alert if you are rushing through the movements.</div>
-	    <div> If you run into issues with the sensor, please try reconnecting. </div>
+
       <div id="panel-header">
         <div id="connect_button" onclick="select_sensor()"> Add Sensor </div>
         <div id="disconnect_button" onclick="disconnect_sensor()"> Disconnect </div>
@@ -349,6 +354,7 @@
       <div id="note"> first input should be a single byte
         <a onclick="document.getElementById('note').style.display='none'">(hide)</a>
       </div>
+      <br>
            <!-- TODO: Step counter results should be populated here -->
 	   <div id="output"> <b>Output:  <span id="out"></span></b>
       </div>
@@ -358,7 +364,11 @@
     <div>Here is a tutorial video to help you get started on deadlifts: </div>
     <iframe width="420" height="315"
 	src="https://www.youtube.com/embed/2bmuYtv4HbQ">
+
 	</iframe>
+	<br>
+
+	    <div> If you run into issues with the sensor, please try reconnecting. </div>
     <ul id="type-menu">
       <li class="typea" onclick="reformatDt('n')">None</li>
       <li class="typea" onclick="reformatDt('s')">String</li>
