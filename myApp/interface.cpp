@@ -90,6 +90,11 @@ void myApp::processData(wb::ResourceId resourceId, const wb::Value &value){
   float magnitudes[16];
   const wb::Array<wb::FloatVector3D> &accData = data.arrayAcc;
 
+  uint8_t bad1 [] = {'Y','o','u',' ','a','r','e',' ','p','e','r','f','o','r','m','i','n','g',' ','t','h','e',' ','e','x','e','r','c','i','s','e',' ','t','o','o',' ','q','u','i','c','k','l','y','.',' ','P','l','e','a','s','e',' ','s','t','a','r','t',' ','a','g','a','i','n'};
+
+  uint8_t bad2 [] = {'R','e','f','e','r',' ','t','o',' ','t','h','e',' ','f','o','l','l','o','w','i','n','g',' ','i','n','s','t','r','u','c','t','i','o','n','a','l',' ','v','i','d','e','o',' ','t','o',' ','h','t','t','p','s',':','/','/','w','w','w','.','y','o','u','t','u','b','e','.','c','o','m','/','w','a','t','c','h','?','v','=','2','b','m','u','Y','t','v','4','H','b','Q'};
+
+  uint8_t good[] = {'G','r','e','a','t',' ','g','o','i','n','g','!'};
   float averageMagnitude = 0;
   float x_avg = 0;
   float y_avg = 0;
@@ -112,8 +117,7 @@ void myApp::processData(wb::ResourceId resourceId, const wb::Value &value){
   uint8_t tag = 5;
 
   if (x_avg > 3.0f and y_avg > 3.0f ) {
-	count[0]++; 
-  	sendPacket(count, sizeof(count), tag, Responses::COMMAND_RESULT);
+  	sendPacket((uint8_t *)good, sizeof(good), tag, Responses::COMMAND_RESULT);
   	ledSetPattern(1000,2000,1);
   }
 
