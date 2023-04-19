@@ -114,12 +114,16 @@ void myApp::processData(wb::ResourceId resourceId, const wb::Value &value){
 
   uint8_t tag = 5;
 
-  if (x_avg > 3.0f and y_avg > 3.0f ) {
+  bool flag = true;
+  if (x_avg > 3.0f and y_avg > 3.0f and flag) {
   	sendPacket((uint8_t *)bad, sizeof(bad), tag, Responses::COMMAND_RESULT);
   //	ledSetPattern(1000,2000,1);
+  	flag = false;
   }
-  else
+  else {
 	sendPacket((uint8_t *)good, sizeof(good), tag, Responses::COMMAND_RESULT);
+	flag = true;
+  }
 
   /*
   float averageMagnitude[1];
