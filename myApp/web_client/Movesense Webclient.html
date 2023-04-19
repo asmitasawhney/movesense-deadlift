@@ -22,7 +22,7 @@
       for(let i=0; i<values.length; i++){
         ctx.fillText(values[i],65, 90+40*i);
    	}
-      document.getElementById("out").innerHTML = values;
+      //document.getElementById("out").innerHTML = values;
     }
 
 
@@ -321,7 +321,6 @@
     <div id="panel">
 	    <div> Welcome! Connect your sensor to begin monitoring form! </div>
 	    <div> If you run into issues with the sensor, please try reconnecting. </div>
-	    <br>
       <div id="panel-header">
         <div id="connect_button" onclick="select_sensor()"> Add Sensor </div>
         <div id="disconnect_button" onclick="disconnect_sensor()"> Disconnect </div>
@@ -354,8 +353,7 @@
 	   <div id="output"> <b>Output:  <span id="out"></span></b>
       </div>
     </div>
-
-    <div> IMage goes here </div>
+	<br>
     <iframe width="420" height="315"
 	src="https://www.youtube.com/embed/tgbNymZ7vqY">
 	</iframe>
