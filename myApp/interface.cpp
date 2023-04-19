@@ -120,7 +120,7 @@ void myApp::processData(wb::ResourceId resourceId, const wb::Value &value){
   //	ledSetPattern(1000,2000,1);
   	flag = false;
   }
-  else {
+  else if (not flag ){
 	sendPacket((uint8_t *)good, sizeof(good), tag, Responses::COMMAND_RESULT);
 	flag = true;
   }
